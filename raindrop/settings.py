@@ -4,4 +4,4 @@ class Settings():
     
     background_color = (255, 255, 255)
     
-    drop_speed = 10
+    drop_speed = 3

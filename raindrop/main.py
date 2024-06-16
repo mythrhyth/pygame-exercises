@@ -50,14 +50,7 @@ def run_game():
         
         
                 
-        screen.fill(settings.background_color)
-        
-        gf.update_screen(raindrops, screen, settings)
-        
-        
-            
-        pygame.display.flip()
-            
+        gf.update_screen(screen, settings, raindrops)
     
 
 run_game()

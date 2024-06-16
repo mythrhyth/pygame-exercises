@@ -1,8 +1,11 @@
+import pygame
 from raindrop import Raindrop
 
-def update_screen(raindrops, screen, settings):
-    raindrops.update(settings)
+def update_screen(screen, settings, raindrops):
+    screen.fill(settings.background_color)
+    raindrops.update()
     raindrops.draw(screen)
+    pygame.display.flip()
     
 def get_number_raindrops(settings, raindrop_width):
     available_space_x = settings.screen_width - (2* raindrop_width)
@@ -15,7 +18,7 @@ def get_number_rows(settings, raindrop_height):
     return number_rows
 
 def create_raindrops(settings, screen,raindrops, raindrop_width, raindrop_height, number, num):
-    raindrop = Raindrop(settings, screen)
+    raindrop = Raindrop(screen, settings)
     
     raindrop.x = raindrop_width +2 * raindrop_width * number
     raindrop.y = raindrop_height + 2* raindrop_height* num
@@ -26,7 +29,7 @@ def create_raindrops(settings, screen,raindrops, raindrop_width, raindrop_height
 
 
 def create_fleet(settings, screen, raindrops):
-    raindrop = Raindrop(settings, screen)
+    raindrop = Raindrop(screen, settings)
     raindrop_width = raindrop.rect.width
     raindrop_height = raindrop.rect.height
     

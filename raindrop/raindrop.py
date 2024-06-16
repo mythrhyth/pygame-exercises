@@ -18,10 +18,15 @@ class Raindrop(Sprite):
         
         self.x = float(self.rect.x)
         
-    def update(self, settings):
-        self.rect.y += settings.drop_speed * self.rect.y
+    def update(self):
+        self.rect.y += self.settings.drop_speed
+        
+        # If the raindrop moves off the screen, reset its position to the top
+        if self.rect.top > self.settings.screen_height:
+            self.rect.y = 0
     
     def draw_raindrop(self):
         self.screen.blit(self.image, self.rect)
         
+    
     

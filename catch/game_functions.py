@@ -1,5 +1,7 @@
 import pygame 
 import sys
+import random
+
 
 def check_events(catcher):
     for event in pygame.event.get():
@@ -36,13 +38,23 @@ def update_screen(screen, settings, ball, catcher):
     catcher.blitme(screen)
     pygame.display.flip()
     
-def update_balls(catcher, balls, ball):
-    collisions = pygame.sprite.groupcollide(balls, catcher, True, False)
+def update_balls(catcher, ball, settings):
     
-    if collisions or balls.rect.y > balls.screen_rect.height:
-        balls.empty()
-        balls.add(ball)
-     
-   
+    collisions = ball.rect.colliderect(catcher.rect)
+    
+    if collisions:
+        ball.rect.y = 0 
+        settings.points += 1
+        ball.rect.x = random.randint(0, 1200 - ball.rect.width)
         
-    
+    elif ball.rect.y > ball.screen_rect.height:
+        ball.rect.y = 0
+        settings.fallen_balls += 1
+        if settings.fallen_balls >= 3:
+            print("Game Over")
+            pygame.quit()
+            sys.exit()
+    else:
+        ball.update()
+        
+        

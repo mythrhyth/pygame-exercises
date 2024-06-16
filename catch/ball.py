@@ -1,12 +1,11 @@
 import pygame
 import random 
-from pygame.sprite import Sprite
 
 
 
-class Ball(Sprite):
+
+class Ball():
     def __init__(self, screen, settings):
-        super().__init__()
         self.settings = settings
         self.image = pygame.image.load("C:\\Users\\rhyth\\OneDrive\\Documents\\py[1]\\exercise_pygame\\catch\\ball.bmp")
         self.screen = screen

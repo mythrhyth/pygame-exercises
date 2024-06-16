@@ -27,7 +27,7 @@ def run_game():
         ball.update()
         gf.check_events(catcher)
         
-        gf.update_balls(catcher, balls, ball)
+        gf.update_balls(catcher, ball, settings)
         
                 
         gf.update_screen(screen, settings, ball, catcher)

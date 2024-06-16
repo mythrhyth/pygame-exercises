@@ -8,7 +8,11 @@ class Settings():
         self.catcher_speed = 45
         
         self.ball_speed = 1
+    
         
+        self.points = 0
+        
+        self.fallen_balls = 0
         
         
         
